@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './Chatbot.module.css';
+import { API_URL as API } from '../config';
 
 const FAQ_RESPONSES = {
   gastos:   '💡 Los gastos de compra incluyen el ITP (6–10% según comunidad), notaría (~0,5%), registro (~0,2%) y gestoría. En total, calcula entre un 8% y 12% adicional al precio.',
@@ -34,9 +35,28 @@ export default function Chatbot() {
     setInput('');
     setMessages(prev => [...prev, { from: 'user', text }]);
     setTyping(true);
-    await new Promise(r => setTimeout(r, 700));
-    setTyping(false);
-    setMessages(prev => [...prev, { from: 'bot', text: getBotReply(text) }]);
+
+    try {
+      const res = await fetch(`${API}/chat/bot/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: text }),
+      });
+      const data = await res.json();
+
+      // Si la IA responde correctamente, usamos su respuesta
+      if (res.ok && data.reply && !data.reply.includes('no puedo responder ahora mismo')) {
+        setMessages(prev => [...prev, { from: 'bot', text: data.reply }]);
+      } else {
+        // Si la IA falla o devuelve el mensaje de error, usamos la respuesta fija
+        setMessages(prev => [...prev, { from: 'bot', text: getBotReply(text) }]);
+      }
+    } catch {
+      // Si no hay conexión con el backend, usamos la respuesta fija
+      setMessages(prev => [...prev, { from: 'bot', text: getBotReply(text) }]);
+    } finally {
+      setTyping(false);
+    }
   };
 
   const handleKey = (e) => { if (e.key === 'Enter') send(); };

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useI18n } from '../../context/I18nContext';
 import styles from './EmployeeDashboard.module.css';
-
-const API = 'http://127.0.0.1:8000/api';
+import { API_URL as API } from '../../config';
 
 const STATUS_MAP = {
   activo:    { key: 'emp.statusActive',  cls: 'sActive'  },

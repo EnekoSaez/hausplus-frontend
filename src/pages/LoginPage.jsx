@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { useI18n } from '../context/I18nContext';
 import { useGoogleLogin } from '@react-oauth/google';
 import styles from './LoginPage.module.css';
+import { API_URL as API } from '../config';
 
 export default function LoginPage() {
   const { login, setUser: setUserDirectly } = useAuth();
@@ -36,7 +37,7 @@ export default function LoginPage() {
       setLoading(true);
       setError('');
       try {
-        const res = await fetch('http://127.0.0.1:8000/api/auth/google/', {
+        const res = await fetch(`${API}/auth/google/`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ access_token: tokenResponse.access_token }),

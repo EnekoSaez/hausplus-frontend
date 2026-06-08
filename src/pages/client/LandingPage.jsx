@@ -5,9 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 import PropertyCard from '../../components/PropertyCard';
 import Chatbot from '../../components/Chatbot';
 import styles from './LandingPage.module.css';
-
-
-const API = 'http://127.0.0.1:8000/api';
+import { API_URL as API } from '../../config';
 
 export default function LandingPage() {
   const { t } = useI18n();

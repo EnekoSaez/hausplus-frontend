@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useI18n } from '../../context/I18nContext';
 import styles from './OwnerDashboard.module.css';
-
-const API = 'http://127.0.0.1:8000/api';
+import { API_URL as API } from '../../config';
 
 const STATUS_MAP = {
   activo:    { key: 'own.statusActive',  cls: 'pActive'  },
