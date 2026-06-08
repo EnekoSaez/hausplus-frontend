@@ -1,0 +1,192 @@
+.page {
+  background: var(--bg-page);
+  min-height: calc(100vh - 60px);
+  padding: 32px 0 64px;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.back {
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--t-fast);
+}
+.back:hover { color: var(--text-primary); }
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 28px;
+  align-items: start;
+}
+
+.image {
+  height: 340px;
+  border-radius: var(--r-lg);
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+.bSale { background: rgba(15,35,54,0.75); color: #fff; }
+.bRent { background: rgba(30,107,48,0.80); color: #fff; }
+
+.featuresBox {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 20px;
+}
+.featTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.featList { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.featItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.featDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  flex-shrink: 0;
+}
+
+/* Right column */
+.infoCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.address {
+  font-size: 13px;
+  color: var(--text-hint);
+  margin-bottom: 22px;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.metaItem {
+  background: var(--bg-muted);
+  border-radius: var(--r-sm);
+  padding: 12px 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.metaVal   { font-size: 15px; font-weight: 600; color: var(--text-primary); }
+.metaLabel { font-size: 11px; color: var(--text-hint); }
+
+.divider { height: 1px; background: var(--border); margin-bottom: 20px; }
+
+.contactSection { display: flex; flex-direction: column; gap: 10px; }
+.contactLabel { font-size: 13px; color: var(--text-secondary); margin-bottom: 4px; }
+
+.btnPrimary {
+  width: 100%;
+  padding: 13px;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: var(--r-md);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--t-fast);
+}
+.btnPrimary:hover { background: var(--blue); }
+
+.btnGhost {
+  width: 100%;
+  padding: 13px;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r-md);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--t-fast);
+}
+.btnGhost:hover { background: var(--bg-muted); }
+
+.agentCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.agentAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--blue-light);
+  color: var(--blue-txt);
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.agentName  { font-size: 14px; font-weight: 500; color: var(--text-primary); }
+.agentRole  { font-size: 12px; color: var(--text-hint); }
+.agentPhone { margin-left: auto; font-size: 13px; font-weight: 500; color: var(--blue); }
+
+.notFound {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-secondary);
+}

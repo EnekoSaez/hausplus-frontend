@@ -1,0 +1,37 @@
+.wrap { position: relative; }
+
+.trigger {
+  display: flex; align-items: center; gap: 5px;
+  padding: 5px 10px; border-radius: 20px;
+  border: 1px solid var(--border-mid); background: transparent;
+  font-size: 12px; font-weight: 500; color: var(--text-secondary);
+  cursor: pointer; font-family: 'Outfit', sans-serif;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+.trigger:hover { background: var(--bg-muted); color: var(--text-primary); }
+.chevron { font-size: 9px; opacity: 0.6; }
+
+.overlay { position: fixed; inset: 0; z-index: 99; }
+
+.dropdown {
+  position: absolute; top: calc(100% + 6px); right: 0;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--r-md); box-shadow: var(--shadow-md);
+  overflow: hidden; z-index: 100; min-width: 130px;
+  animation: fadeUp 0.15s ease forwards;
+}
+
+.option {
+  display: flex; align-items: center; gap: 8px;
+  width: 100%; text-align: left;
+  padding: 9px 14px; background: transparent;
+  border: none; cursor: pointer; font-family: 'Outfit', sans-serif;
+  transition: background var(--t-fast);
+}
+.option:hover { background: var(--bg-muted); }
+.active { background: var(--blue-light) !important; }
+
+.optFlag { font-size: 13px; font-weight: 600; color: var(--text-secondary); min-width: 32px; }
+.optName { font-size: 13px; color: var(--text-primary); }
+.active .optFlag,
+.active .optName { color: var(--blue); }

@@ -1,0 +1,113 @@
+.page {
+  min-height: calc(100vh - 60px);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-page); padding: 40px 20px;
+}
+
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--r-xl); width: 100%; max-width: 420px;
+  box-shadow: var(--shadow-lg); overflow: hidden;
+  animation: fadeUp 0.3s ease forwards;
+}
+
+.cardHeader {
+  background: var(--navy); padding: 32px 28px 28px; text-align: center;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif; font-size: 26px;
+  font-weight: 600; color: #fff; letter-spacing: -0.3px; margin-bottom: 6px;
+}
+.logo em { color: #7ab8e8; font-style: normal; }
+.subtitle { font-size: 13px; color: rgba(255,255,255,0.55); }
+
+.form { padding: 24px 28px; }
+
+.errorBox {
+  background: var(--red-bg); color: var(--red-txt);
+  border: 1px solid rgba(139,32,32,0.15); border-radius: var(--r-sm);
+  padding: 10px 14px; font-size: 13px; margin-bottom: 16px;
+}
+
+.field { margin-bottom: 16px; }
+
+.label {
+  display: block; font-size: 12px; font-weight: 500;
+  color: var(--text-secondary); margin-bottom: 6px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.input {
+  width: 100%; padding: 11px 14px;
+  border: 1px solid var(--border-mid); border-radius: var(--r-md);
+  font-size: 14px; color: var(--text-primary);
+  background: var(--bg-page); outline: none;
+  font-family: 'Outfit', sans-serif;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.input:focus {
+  border-color: var(--blue); box-shadow: 0 0 0 3px rgba(44,123,181,0.12); background: #fff;
+}
+.input::placeholder { color: var(--text-hint); }
+
+.forgotLink {
+  display: block; margin-top: 6px; font-size: 12px;
+  color: var(--blue); cursor: pointer; text-align: right;
+}
+.forgotLink:hover { text-decoration: underline; }
+
+/* Role selector (solo en registro) */
+.roleGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.roleOpt {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  padding: 14px 8px; border: 1.5px solid var(--border-mid);
+  border-radius: var(--r-md); background: var(--bg-page);
+  cursor: pointer; transition: all var(--t-fast);
+}
+.roleOpt:hover { border-color: var(--blue); background: var(--blue-light); }
+.roleSelected {
+  border-color: var(--blue) !important; background: var(--blue-light) !important;
+  box-shadow: 0 0 0 3px rgba(44,123,181,0.10);
+}
+.roleIcon { font-size: 22px; }
+.roleName { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.roleDesc { font-size: 11px; color: var(--text-hint); text-align: center; }
+
+.submitBtn {
+  width: 100%; padding: 13px; background: var(--navy); color: #fff;
+  border: none; border-radius: var(--r-md);
+  font-size: 15px; font-weight: 500; cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  transition: background var(--t-fast), transform var(--t-fast);
+  margin-top: 4px;
+}
+.submitBtn:hover:not(:disabled) { background: var(--blue); }
+.submitBtn:active { transform: scale(0.99); }
+.submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Divider "o" */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 16px 0; color: var(--text-hint); font-size: 12px;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
+/* Google button */
+.googleBtn {
+  width: 100%; padding: 11px; background: #fff; color: var(--text-primary);
+  border: 1px solid var(--border-mid); border-radius: var(--r-md);
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.googleBtn:hover { background: var(--bg-muted); border-color: var(--border-mid); }
+
+.footer {
+  text-align: center; font-size: 13px; color: var(--text-hint);
+  padding: 16px 28px 20px; border-top: 1px solid var(--border);
+}
+.footerLink { color: var(--blue); font-weight: 500; }
+.footerLink:hover { text-decoration: underline; }

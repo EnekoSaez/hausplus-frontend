@@ -1,0 +1,76 @@
+/* ─── RESET ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── DESIGN TOKENS ─────────────────────────────────────── */
+:root {
+  /* Brand */
+  --navy:        #0f2336;
+  --navy-mid:    #1a3a52;
+  --blue:        #2C7BB5;
+  --blue-light:  #e8f3fb;
+  --gold:        #c8923a;
+  --gold-light:  #fdf3e7;
+
+  /* Surfaces */
+  --bg-page:     #f6f5f2;
+  --bg-card:     #ffffff;
+  --bg-muted:    #f0eeea;
+
+  /* Text */
+  --text-primary:   #0f1f2d;
+  --text-secondary: #5a6778;
+  --text-hint:      #9aa4b0;
+
+  /* Borders */
+  --border:      rgba(15,35,54,0.10);
+  --border-mid:  rgba(15,35,54,0.18);
+
+  /* Status */
+  --green-bg:  #eaf4ec; --green-txt: #1e6b30;
+  --amber-bg:  #fdf3e7; --amber-txt: #8a5010;
+  --blue-bg:   #e8f3fb; --blue-txt:  #0c4579;
+  --red-bg:    #fbeaea; --red-txt:   #8b2020;
+
+  /* Radius */
+  --r-sm:  6px;
+  --r-md:  10px;
+  --r-lg:  14px;
+  --r-xl:  20px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 4px rgba(15,35,54,0.08);
+  --shadow-md: 0 4px 16px rgba(15,35,54,0.10);
+  --shadow-lg: 0 8px 32px rgba(15,35,54,0.12);
+
+  /* Transitions */
+  --t-fast: 150ms ease;
+  --t-mid:  250ms ease;
+}
+
+/* ─── UTILITY ────────────────────────────────────────────── */
+.serif { font-family: 'Cormorant Garamond', serif; }
+
+button { font-family: 'Outfit', sans-serif; cursor: pointer; }
+input, textarea, select { font-family: 'Outfit', sans-serif; }
+a { text-decoration: none; color: inherit; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 3px; }
+
+/* ─── PAGE TRANSITION ────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: fadeUp 0.35s ease forwards; }
