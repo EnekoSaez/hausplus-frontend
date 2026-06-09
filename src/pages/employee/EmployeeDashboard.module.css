@@ -118,3 +118,20 @@
 .msgBubble { background: var(--bg-muted); color: var(--text-primary); font-size: 13px; line-height: 1.5; padding: 10px 14px; border-radius: 12px; border-bottom-left-radius: 4px; }
 .msgBubbleOwn { background: var(--navy); color: #fff; border-radius: 12px; border-bottom-right-radius: 4px; }
 .msgMeta { font-size: 11px; color: var(--text-hint); }
+
+.convSub {
+  font-size: 11px;
+  color: var(--text-hint);
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.roleTag {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 8px;
+}
+.roleTagOwner  { background: var(--gold-light); color: var(--amber-txt); }
+.roleTagClient { background: var(--blue-light); color: var(--blue-txt); }

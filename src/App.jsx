@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import EmployeeDashboard from './pages/employee/EmployeeDashboard';
 import OwnerDashboard from './pages/owner/OwnerDashboard';
+import MyMessages from './pages/client/MyMessages';
 
 function ProtectedRoute({ children, allowedRoles }) {
   const { user } = useAuth();
@@ -41,6 +42,9 @@ function AppRoutes() {
           element={<ProtectedRoute allowedRoles={['owner']}><OwnerDashboard /></ProtectedRoute>}
         />
         <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/mis-mensajes"
+          element={user ? <MyMessages /> : <Navigate to="/login" replace />}
+        />
       </Routes>
     </>
   );

@@ -62,6 +62,9 @@ export default function Navbar() {
                     <button className={styles.dropItem} onClick={handleCatalog}>
                       🏘 {t('nav.catalog')}
                     </button>
+                    <button className={styles.dropItem} onClick={() => { setMenuOpen(false); navigate('/mis-mensajes'); }}>
+                      💬 {t('msg.navLink')}
+                    </button>
                     {user.role === 'employee' && (
                       <button className={styles.dropItem} onClick={() => { setMenuOpen(false); navigate('/empleado'); }}>
                         📊 {t('nav.empPanel')}

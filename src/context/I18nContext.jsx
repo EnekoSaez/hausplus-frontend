@@ -101,6 +101,12 @@ const TRANSLATIONS = {
     // Chat
     'chat.team': 'Comunicación con el equipo', 'chat.send': 'Enviar',
     'chat.placeholder': 'Escribe al equipo...', 'chat.noMessages': 'No hay mensajes todavía. ¡Escribe al equipo!',
+
+    // Mis mensajes (cliente/propietario)
+    'msg.myMessages':   'Mis mensajes',
+    'msg.noMessages':   'Todavía no tienes mensajes.',
+    'msg.selectConv':   'Selecciona una conversación.',
+    'msg.navLink':      'Mis mensajes',
   },
 
   eu: {
@@ -195,6 +201,11 @@ const TRANSLATIONS = {
 
     'chat.team': 'Taldearekin komunikazioa', 'chat.send': 'Bidali',
     'chat.placeholder': 'Idatzi taldeari...', 'chat.noMessages': 'Oraindik ez dago mezurik. Idatzi taldeari!',
+
+    'msg.myMessages':   'Nire mezuak',
+    'msg.noMessages':   'Oraindik ez duzu mezurik.',
+    'msg.selectConv':   'Hautatu elkarrizketa bat.',
+    'msg.navLink':      'Nire mezuak',
   },
 
   en: {
@@ -289,6 +300,11 @@ const TRANSLATIONS = {
 
     'chat.team': 'Communication with the team', 'chat.send': 'Send',
     'chat.placeholder': 'Write to the team...', 'chat.noMessages': 'No messages yet. Write to the team!',
+
+    'msg.myMessages':   'My messages',
+    'msg.noMessages':   "You don't have any messages yet.",
+    'msg.selectConv':   'Select a conversation.',
+    'msg.navLink':      'My messages',
   },
 };
 

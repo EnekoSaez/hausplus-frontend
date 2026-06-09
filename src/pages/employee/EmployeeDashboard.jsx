@@ -529,7 +529,7 @@ function PublishForm({ onSuccess }) {
   );
 }
 
-/* ── Employee messages (ve todas las conversaciones) ── */
+/* ── Employee messages con filtro por tipo ── */
 function EmployeeMessagesView() {
   const { t } = useI18n();
   const [conversations, setConversations] = useState([]);
@@ -537,6 +537,7 @@ function EmployeeMessagesView() {
   const [messages, setMessages]           = useState([]);
   const [input, setInput]                 = useState('');
   const [loading, setLoading]             = useState(true);
+  const [filter, setFilter]               = useState('all'); // all | owner | client
 
   useEffect(() => {
     fetch(`${API}/chat/`, { headers: authHeaders() })
@@ -547,7 +548,7 @@ function EmployeeMessagesView() {
 
   const openConversation = (conv) => {
     setSelected(conv);
-    fetch(`${API}/chat/${conv.property}/`, { headers: authHeaders() })
+    fetch(`${API}/chat/${conv.property}/?contact=${conv.contact_id}`, { headers: authHeaders() })
       .then(r => r.json())
       .then(data => setMessages(data.messages || []));
   };
@@ -555,30 +556,66 @@ function EmployeeMessagesView() {
   const sendMsg = async () => {
     if (!input.trim() || !selected) return;
     await fetch(`${API}/chat/${selected.property}/`, {
-      method: 'POST', headers: authHeaders(), body: JSON.stringify({ content: input.trim() }),
+      method: 'POST',
+      headers: authHeaders(),
+      body: JSON.stringify({ content: input.trim(), contact: selected.contact_id }),
     });
     setInput('');
     openConversation(selected);
   };
 
+  // Filtrar conversaciones según el tipo seleccionado
+  const filteredConvs = conversations.filter(c => {
+    if (filter === 'all') return true;
+    return c.contact_role === filter;
+  });
+
+  const FILTERS = [
+    { id: 'all',    label: t('emp.all') },
+    { id: 'owner',  label: t('emp.owners') },
+    { id: 'client', label: t('emp.clients') },
+  ];
+
   return (
     <div className={styles.page}>
       <div className={styles.pageHeader}><h1 className={styles.pageTitle}>{t('emp.messages')}</h1></div>
+
+      {/* Filtro por tipo de contacto */}
+      <div className={styles.filterRow}>
+        {FILTERS.map(f => (
+          <button key={f.id}
+            className={`${styles.filterChip} ${filter === f.id ? styles.filterChipActive : ''}`}
+            onClick={() => { setFilter(f.id); setSelected(null); }}>
+            {f.label}
+          </button>
+        ))}
+      </div>
+
       <div className={styles.chatLayout}>
         <div className={styles.convList}>
           {loading && <div className={styles.loadingRow}>{t('emp.loading')}</div>}
-          {conversations.map(conv => (
+          {filteredConvs.map(conv => (
             <button key={conv.id}
               className={`${styles.convItem} ${selected?.id === conv.id ? styles.convItemActive : ''}`}
               onClick={() => openConversation(conv)}>
-              <div className={styles.convTitle}>{conv.property_title}</div>
+              <div style={{ flex: 1 }}>
+                <div className={styles.convTitle}>{conv.property_title}</div>
+                <div className={styles.convSub}>
+                  {/* Etiqueta visual del tipo de contacto */}
+                  <span className={`${styles.roleTag} ${conv.contact_role === 'owner' ? styles.roleTagOwner : styles.roleTagClient}`}>
+                    {conv.contact_role === 'owner' ? t('register.owner') : t('register.client')}
+                  </span>
+                  {conv.contact_name}
+                </div>
+              </div>
               {conv.unread_count > 0 && <span className={styles.unreadBadge}>{conv.unread_count}</span>}
             </button>
           ))}
-          {!loading && conversations.length === 0 && (
+          {!loading && filteredConvs.length === 0 && (
             <div className={styles.placeholder} style={{ padding: 24, margin: 12 }}>{t('emp.noConvs')}</div>
           )}
         </div>
+
         <div className={styles.msgPanel}>
           {!selected ? (
             <div className={styles.noConvSelected}>{t('emp.selectConv')}</div>
