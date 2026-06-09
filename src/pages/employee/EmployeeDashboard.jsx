@@ -75,9 +75,11 @@ export default function EmployeeDashboard() {
         {activeNav === 'dashboard'  && <DashboardView onPublish={() => setActiveNav('publish')} />}
         {activeNav === 'properties' && <PropertiesView />}
         {activeNav === 'pending'    && <PendingView />}
+        {activeNav === 'clients' && <UsersListView role="client" />}
+        {activeNav === 'owners'  && <UsersListView role="owner" />}
         {activeNav === 'publish'    && <PublishForm onSuccess={() => setActiveNav('properties')} />}
         {activeNav === 'messages'   && <EmployeeMessagesView />}
-        {!['dashboard', 'properties', 'pending', 'publish', 'messages'].includes(activeNav) && (
+        {!['dashboard', 'properties', 'pending', 'clients', 'owners', 'publish', 'messages'].includes(activeNav) && (
           <PlaceholderView label={NAV_ITEMS.find(n => n.id === activeNav)?.label} />
         )}
       </main>
@@ -609,6 +611,63 @@ function EmployeeMessagesView() {
             </>
           )}
         </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Lista de usuarios (clientes o propietarios) ── */
+function UsersListView({ role }) {
+  const { t } = useI18n();
+  const [users, setUsers]     = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const endpoint = role === 'client' ? 'clients' : 'owners';
+  const title    = role === 'client' ? t('emp.clients') : t('emp.owners');
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(`${API}/auth/${endpoint}/`, { headers: authHeaders() })
+      .then(r => r.json())
+      .then(data => { setUsers(data.results || data); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [endpoint]);
+
+  return (
+    <div className={styles.page}>
+      <div className={styles.pageHeader}>
+        <h1 className={styles.pageTitle}>{title}</h1>
+      </div>
+      <div className={styles.tableCard}>
+        {loading ? (
+          <div className={styles.loadingRow}>{t('emp.loading')}</div>
+        ) : (
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map(u => (
+                <tr key={u.id}>
+                  <td>
+                    <div className={styles.propName}>{u.full_name || '—'}</div>
+                  </td>
+                  <td>{u.email}</td>
+                  <td>{u.phone || '—'}</td>
+                </tr>
+              ))}
+              {users.length === 0 && (
+                <tr><td colSpan={3} style={{ textAlign: 'center', padding: '32px', color: 'var(--text-hint)' }}>
+                  No hay {role === 'client' ? 'clientes' : 'propietarios'} registrados.
+                </td></tr>
+              )}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );
