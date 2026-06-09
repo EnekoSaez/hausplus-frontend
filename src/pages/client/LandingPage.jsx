@@ -44,7 +44,7 @@ export default function LandingPage() {
 
   const { user, setUser } = useAuth();
   const handleUpgrade = async () => {
-    const res = await fetch('http://127.0.0.1:8000/api/auth/upgrade-to-owner/', {
+    const res = await fetch(`${API}/auth/upgrade-to-owner/`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${localStorage.getItem('access')}` }
     });

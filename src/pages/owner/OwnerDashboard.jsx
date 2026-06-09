@@ -42,8 +42,6 @@ export default function OwnerDashboard() {
 
   const NAV_ITEMS = [
     { id: 'properties', label: t('own.myProps') },
-    { id: 'messages',   label: t('own.messages') },
-    { id: 'documents',  label: t('own.documents') },
     { id: 'register',   label: t('own.register') },
     { id: 'settings',   label: t('own.settings') },
   ];
