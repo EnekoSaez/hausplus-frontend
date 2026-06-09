@@ -28,6 +28,7 @@ export default function EmployeeDashboard() {
     { id: 'clients',    label: t('emp.clients'),    section: 'main' },
     { id: 'owners',     label: t('emp.owners'),     section: 'main' },
     { id: 'publish',    label: t('emp.publish'),    section: 'tools' },
+    { id: 'messages',   label: t('emp.messages'),   section: 'tools' },
   ];
 
   const mainItems  = NAV_ITEMS.filter(n => n.section === 'main');
