@@ -16,7 +16,7 @@ export default function LandingPage() {
   const [activeFilter,  setActiveFilter]  = useState('all');
   const [search,        setSearch]        = useState('');
 
-  // Carga propiedades activas desde el backend real
+  // Carga propiedades activas desde el backend
   useEffect(() => {
     const params = new URLSearchParams();
     if (search) params.set('search', search);
@@ -92,8 +92,8 @@ export default function LandingPage() {
       {/* Banner upgrade a propietario — solo visible para clientes autenticados */}
       {user && user.role === 'client' && (
         <div className={styles.upgradeBanner}>
-          ¿Quieres vender o alquilar tu propiedad?{' '}
-          <button onClick={handleUpgrade}>Convertirme en propietario</button>
+          {t('landing.upgradeBanner')}
+          <button onClick={handleUpgrade}>{t('landing.upgradeBtn')}</button>
         </div>
       )}
       {/* Filter bar */}
@@ -113,17 +113,17 @@ export default function LandingPage() {
       {/* Grid */}
       <main className={styles.main}>
         {loading ? (
-          <div className={styles.loadingMsg}>Cargando propiedades...</div>
+          <div className={styles.loadingMsg}>{t('landing.loading')}</div>
         ) : properties.length > 0 ? (
           <div className={styles.grid}>
             {properties.map(p => <PropertyCard key={p.id} property={p} />)}
           </div>
         ) : (
           <div className={styles.empty}>
-            <p>No hay propiedades disponibles con estos filtros.</p>
+            <p>{t('landing.empty')}</p>
             <button className={styles.resetBtn}
               onClick={() => { setActiveFilter('all'); setSearch(''); }}>
-              Ver todas
+              {t('landing.viewAll')}
             </button>
           </div>
         )}

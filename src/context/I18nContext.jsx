@@ -24,6 +24,10 @@ const TRANSLATIONS = {
     'landing.upgradeBtn': 'Convertirme en propietario',
     'landing.loading': 'Cargando propiedades...', 'landing.empty': 'No hay propiedades disponibles con estos filtros.',
     'landing.viewAll': 'Ver todas',
+    'landing.upgradeBanner': '¿Quieres vender o alquilar tu propiedad?',
+    'landing.upgradeBtn': 'Convertirme en propietario',
+    'landing.loading': 'Cargando propiedades...',
+    'landing.empty': 'No hay propiedades disponibles con estos filtros.',
 
     // Login
     'login.title': 'Accede a tu cuenta', 'login.email': 'Correo electrónico', 'login.password': 'Contraseña',
@@ -45,6 +49,10 @@ const TRANSLATIONS = {
     'prop.sqm': 'Superficie', 'prop.garage': 'Garaje', 'prop.terrace': 'Terraza',
     'prop.contact': 'Contactar con el agente', 'prop.save': 'Guardar en favoritos',
     'prop.features': 'Características', 'prop.back': '← Volver',
+    'prop.contactLabel': '¿Te interesa esta propiedad?',
+    'prop.contactSent': 'Tu mensaje ha sido enviado. El agente te contactará pronto.',
+    'prop.contactPlaceholder': 'Escribe tu consulta sobre esta propiedad...',
+    'prop.contactSendMsg': 'Enviar consulta',
 
     // Owner dashboard
     'own.myProps': 'Mis propiedades', 'own.messages': 'Mensajes', 'own.documents': 'Documentos',
@@ -130,6 +138,10 @@ const TRANSLATIONS = {
     'landing.upgradeBtn': 'Jabe bihurtu',
     'landing.loading': 'Propietateak kargatzen...', 'landing.empty': 'Ez dago propietate eskuragarririk iragazki hauekin.',
     'landing.viewAll': 'Ikusi guztiak',
+    'landing.upgradeBanner': 'Zure propietatea saldu edo alokatu nahi duzu?',
+    'landing.upgradeBtn': 'Jabe bihurtu',
+    'landing.loading': 'Propietateak kargatzen...',
+    'landing.empty': 'Ez dago propietate eskuragarririk iragazki hauekin.',
 
     'login.title': 'Sartu zure kontura', 'login.email': 'Helbide elektronikoa', 'login.password': 'Pasahitza',
     'login.forgot': 'Pasahitza ahaztu duzu?', 'login.submit': 'Saioa hasi', 'login.loading': 'Sartzen…',
@@ -148,6 +160,10 @@ const TRANSLATIONS = {
     'prop.sqm': 'Azalera', 'prop.garage': 'Garajea', 'prop.terrace': 'Teraza',
     'prop.contact': 'Agentearekin harremanetan jarri', 'prop.save': 'Gogokoetan gorde',
     'prop.features': 'Ezaugarriak', 'prop.back': '← Itzuli',
+    'prop.contactLabel': 'Propietate hau interesatzen zaizu?',
+    'prop.contactSent': 'Zure mezua bidali da. Agenteak laster jarriko da zurekin harremanetan.',
+    'prop.contactPlaceholder': 'Propietate honi buruzko zure kontsulta idatzi...',
+    'prop.contactSendMsg': 'Bidali kontsulta',
 
     'own.myProps': 'Nire propietateak', 'own.messages': 'Mezuak', 'own.documents': 'Dokumentuak',
     'own.register': 'Propietatea erregistratu', 'own.settings': 'Ezarpenak',
@@ -229,6 +245,10 @@ const TRANSLATIONS = {
     'landing.upgradeBtn': 'Become an owner',
     'landing.loading': 'Loading properties...', 'landing.empty': 'No properties available with these filters.',
     'landing.viewAll': 'View all',
+    'landing.upgradeBanner': 'Want to sell or rent your property?',
+    'landing.upgradeBtn': 'Become an owner',
+    'landing.loading': 'Loading properties...',
+    'landing.empty': 'No properties available with these filters.',
 
     'login.title': 'Sign in to your account', 'login.email': 'Email address', 'login.password': 'Password',
     'login.forgot': 'Forgot your password?', 'login.submit': 'Sign in', 'login.loading': 'Signing in…',
@@ -247,6 +267,10 @@ const TRANSLATIONS = {
     'prop.sqm': 'Floor area', 'prop.garage': 'Garage', 'prop.terrace': 'Terrace',
     'prop.contact': 'Contact the agent', 'prop.save': 'Save to favourites',
     'prop.features': 'Features', 'prop.back': '← Back',
+    'prop.contactLabel': 'Interested in this property?',
+    'prop.contactSent': 'Your message has been sent. The agent will contact you soon.',
+    'prop.contactPlaceholder': 'Write your inquiry about this property...',
+    'prop.contactSendMsg': 'Send inquiry',
 
     'own.myProps': 'My properties', 'own.messages': 'Messages', 'own.documents': 'Documents',
     'own.register': 'Register property', 'own.settings': 'Settings',

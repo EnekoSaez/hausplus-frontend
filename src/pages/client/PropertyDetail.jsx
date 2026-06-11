@@ -141,7 +141,7 @@ export default function PropertyDetail() {
               <div className={styles.divider} />
 
               <div className={styles.contactSection}>
-                <p className={styles.contactLabel}>¿Te interesa esta propiedad?</p>
+                <p className={styles.contactLabel}>{t('prop.contactLabel')}</p>
                 {!showContact ? (
                   <button className={styles.btnPrimary} onClick={handleContact}>
                     {t('prop.contact')}
@@ -151,12 +151,12 @@ export default function PropertyDetail() {
                     background: 'var(--green-bg)', color: 'var(--green-txt)',
                     padding: '12px 16px', borderRadius: 'var(--r-md)', fontSize: 13, textAlign: 'center'
                   }}>
-                    ✓ Mensaje enviado. El agente te responderá pronto.
+                    {t('prop.contactSent')}
                   </div>
                 ) : (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                     <textarea
-                      placeholder="Escribe tu consulta sobre esta propiedad..."
+                      placeholder={t('prop.contactPlaceholder')}
                       value={contactMsg}
                       onChange={e => setContactMsg(e.target.value)}
                       rows={3}
@@ -166,7 +166,7 @@ export default function PropertyDetail() {
                         resize: 'vertical', outline: 'none'
                       }}
                     />
-                    <button className={styles.btnPrimary} onClick={sendContact}>Enviar consulta</button>
+                    <button className={styles.btnPrimary} onClick={sendContact}>{t('prop.contactSendMsg')}</button>
                   </div>
                 )}
               </div>
